@@ -12,7 +12,7 @@
 
 ## Leave-One-Out Cross-Validation(LOOCV)
 
-<image src='LOOCV.webp'>
+<image width='400' src='LOOCV.webp'>
 
 ## K-fold cross validation
 
@@ -46,11 +46,11 @@ Hyperplane
 
 ### Maximal Margin Classifier
 
-<image src='maximal_margin_classifier.png'>
+<image width='400' src='maximal_margin_classifier.png'>
 
 ### Soft Margin Machine
 
-<image src='soft_margin_machine.webp'>
+<image width='400' src='soft_margin_machine.webp'>
 
 ## Decision Tree
 
@@ -71,3 +71,11 @@ Cons:
   Boosting)으로 보완 가능함
 
 ## Linear Discriminant Analysis
+
+# Ensemble Learning
+
+여러 개의 모델을 학습시켜, 다양한 예측 결과들을 이용하는 방법론
+
+## Bagging
+
+## Boosting
