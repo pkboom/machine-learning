@@ -74,7 +74,9 @@ Cons:
 
 # Ensemble Learning
 
-<image width='500' src='ensemble.webp'>
+<image width='500' src='bagging.png'>
+
+<image width='500' src='boosting.png'>
 
 여러 개의 모델을 학습시켜, 다양한 예측 결과들을 이용하는 방법론
 
