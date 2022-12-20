@@ -12,7 +12,7 @@
 
 ## Leave-One-Out Cross-Validation(LOOCV)
 
-<image width='400' src='LOOCV.webp'>
+<image width='500' src='LOOCV.webp'>
 
 ## K-fold cross validation
 
@@ -46,11 +46,11 @@ Hyperplane
 
 ### Maximal Margin Classifier
 
-<image width='400' src='maximal_margin_classifier.png'>
+<image width='500' src='maximal_margin_classifier.png'>
 
 ### Soft Margin Machine
 
-<image width='400' src='soft_margin_machine.webp'>
+<image width='500' src='soft_margin_machine.webp'>
 
 ## Decision Tree
 
