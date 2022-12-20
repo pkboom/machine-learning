@@ -74,8 +74,27 @@ Cons:
 
 # Ensemble Learning
 
+<image width='500' src='ensemble.webp'>
+
 여러 개의 모델을 학습시켜, 다양한 예측 결과들을 이용하는 방법론
 
 ## Bagging
 
+### Bootstrap
+
+### Out-of-Bag Error Estimation
+
+### Random Forests
+
+Bagged tree 사이의 상관관계를 없애 성능을 향상시킨 알고리즘
+
 ## Boosting
+
+배깅과 마찬가지로, 다양한 알고리즘과 회귀와 분류 문제에 모두 적용 가능
+
+결정 트리를 사용한 부스팅 알고리즘
+
+1. AdaBoost
+2. Gradient Boosting(GBM)
+3. XGBoost
+4. Light GBM
