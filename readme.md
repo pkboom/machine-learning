@@ -2,6 +2,8 @@
 
 ## Linear Regression
 
+SGDRegressor
+
 ## Gradient Descent
 
 # Optimization
