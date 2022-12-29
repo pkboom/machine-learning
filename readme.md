@@ -102,3 +102,15 @@ Bagged tree 사이의 상관관계를 없애 성능을 향상시킨 알고리즘
 2. Gradient Boosting(GBM)
 3. XGBoost
 4. Light GBM
+
+# Dimension Reduction
+
+## PCA
+
+## SVD
+
+## LDA
+
+## t-SNE
+
+## UMAP
