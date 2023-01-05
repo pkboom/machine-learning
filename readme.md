@@ -31,7 +31,7 @@ conda deactivate
 (play_environment) $ conda install scikit-learn -c conda-forge -U python==3.10
 
 # list all packages in the Conda environment
-(play_environment) $ conda list
+(play_environment) $ conda list [package-name]
 
 # to list the history of each change to the current environment
 (play_environment) $ conda list --revision
@@ -44,15 +44,6 @@ conda deactivate
 
 # remove a package
 conda remove python
-
-# list packages
-conda list [<package>]
-
-# uninstall a kernel
-jupyter kernelspec uninstall play_environment
-
-# kernels list
-jupyter kernelspec list
 ```
 
 # Config
@@ -109,4 +100,22 @@ conda env remove -n sklearn-env
 
 # List all the conda environment available
 conda env list
+```
+
+# Setup Jupyter Notebook In Conda Environment And Install Kernel
+
+Let's say we created a conda environment `ml`.
+
+```sh
+$ conda activate ml
+# ipykernel: IPython kernel for Jupyter
+(ml) $ conda install ipykernel
+# install the kernel to use a jupyter notebook
+(ml) $ ipython kernel install --user --name=<any_name_for_kernel>
+
+# uninstall a kernel
+jupyter kernelspec uninstall play_environment
+
+# kernels list
+jupyter kernelspec list
 ```
