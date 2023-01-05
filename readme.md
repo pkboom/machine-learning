@@ -1,3 +1,8 @@
+Conda environments contains a specified collection of packages, language agnostic allowing you to manage Python as well as R packages.
+
+Kernels are programming language-specific processes that run independently and interact with the Jupyter notebook.
+ipykernel is the wrapper around IPython. As of IPython 4.0, the language-agnostic parts of the project: the notebook format, message protocol, qtconsole, notebook web application, etc. have moved to new projects under the name Jupyter. IPython itself is focused on interactive Python, part of which is providing a Python kernel for Jupyter.
+
 # Create an environment
 
 ```sh
@@ -53,9 +58,7 @@ conda remove python
 conda config --add channels conda-forge
 ```
 
-# Clone or move conda environment
-
-## Clone an existing environment
+# Clone an existing environment
 
 ```sh
 conda create --name clone_envname --clone sklearn-env
@@ -91,6 +94,12 @@ conda env export > environment.yml
 
 # create a conda environment from a file
 conda env create -f environment.yml
+
+# specify a different install path than the one specified in the ‘prefix’.
+conda env create -f environment.yml -p .
+
+# leave out the prefix line when generating the .yml file.
+conda env export | grep -v "^prefix: " > pytorch_env.yml
 
 # update a conda environment with a file
 conda env update --file environment.yml
