@@ -1,130 +1,116 @@
-Conda environments contains a specified collection of packages, language agnostic allowing you to manage Python as well as R packages.
+# Regression
 
-Kernels are programming language-specific processes that run independently and interact with the Jupyter notebook.
-ipykernel is the wrapper around IPython. As of IPython 4.0, the language-agnostic parts of the project: the notebook format, message protocol, qtconsole, notebook web application, etc. have moved to new projects under the name Jupyter. IPython itself is focused on interactive Python, part of which is providing a Python kernel for Jupyter.
+## Linear Regression
 
-# Create an environment
+SGDRegressor
 
-```sh
-# Create an environment named sklearn-env containing scikit-learn
-# with a specific python version
-# -c: Additional channel to search for packages.
-conda create -n sklearn-env [-c conda-forge scikit-learn] [python=3.6]
-# create the new environment without asking for confirmation
-conda create --name play_environment pandas jupyter ipykernel python=3.7 pytorch pandas numpy=1.16 -y
+## Gradient Descent
 
-# After creating your environment, you can install the packages you need besides the one already installed by conda.
+# Optimization
 
-# Activate an environment
-conda activate sklearn-env
+## Least Square Method
 
-# Deactivate an environment
-conda deactivate
+# Bias & Variance
 
-```
+## Leave-One-Out Cross-Validation(LOOCV)
 
-# Install a kernel
+<image width='500' src='LOOCV.webp'>
 
-```sh
-# use ipykernel to register your new environment as a kernel named play_environment
-(play_environment) $ python -m ipykernel install --user --name play_environment --display-name "play environment"
+## K-fold cross validation
 
-# install packages in conda environment
-# -c: channel
-# -U: update
-# install version 3.10
-(play_environment) $ conda install scikit-learn -c conda-forge -U python==3.10
+Divide data by k.
 
-# list all packages in the Conda environment
-(play_environment) $ conda list [package-name]
+e.g. 4-fold cross validation
 
-# to list the history of each change to the current environment
-(play_environment) $ conda list --revision
+## Regularization
 
-# revert to revision 0
-(play_environment) $ conda install --revision 0
+A process that changes the result answer to be "simpler".
 
-# Updating play_environment with TensorFlow 1.15 from base
-(base) $ conda install -n play_environment tensorflow==1.15
+This is a form of regression, that constrains/regularizes or shrinks the coefficient estimates towards zero. In other words, this technique discourages learning a more complex or flexible model, so as to avoid the risk of overfitting.
 
-# remove a package
-conda remove python
-```
+### Ridge Regression
 
-# Config
+### Lasso Regression
 
-```sh
-# add the channel “conda-forge” to the .condarc
-conda config --add channels conda-forge
-```
+# Classification
 
-# Clone an existing environment
+## Logistic Regression
 
-```sh
-conda create --name clone_envname --clone sklearn-env
-```
+Sigmoid function
 
-# Reproduces Conda environment on the same operating system
+## Softmax Regress
 
-The Spec list can be created with or without the explicit option, as shown below.
+Multi-class classification
 
-```sh
-conda list >spec_list.txt
-#or
-conda list --explicit >spec_list_exp.txt
-```
+## Support Vector Machine(SVM)
 
-An explicit spec file shows the platform where the environment was created. This platform is the one where this spec file is known to work.
+Hyperplane
 
-```sh
-conda create --name test_spec --file spec_list_exp.txt
-```
+### Maximal Margin Classifier
 
-# Export Conda environments using environment.yml file
+<image width='500' src='maximal_margin_classifier.png'>
 
-To share our project conda environment with other team members, we can use an export.
-The environment.yml file is not operating system specific and formatted using YAML.
+### Soft Margin Machine
 
-```sh
-# Create environment.yml file via conda
-conda env export > environment.yml
+<image width='500' src='soft_margin_machine.webp'>
 
-# If the environment already exists, then you will get an error.
-# CondaValueError: prefix already exists
+## Decision Tree
 
-# create a conda environment from a file
-conda env create -f environment.yml
+예측을 위해 여러 region으로 stratifying or segmenting 하는 방법론
 
-# specify a different install path than the one specified in the ‘prefix’.
-conda env create -f environment.yml -p .
+회귀와 분류 모두에서 사용 가능함
 
-# leave out the prefix line when generating the .yml file.
-conda env export | grep -v "^prefix: " > pytorch_env.yml
+Pros:
 
-# update a conda environment with a file
-conda env update --file environment.yml
+- 모델에 대한 해석과 설명이 쉬움
+- 인간의 의사 결정과 매우 비슷한 형태의 모델임
+- 시각적으로 보여주기 편리하며, 비전문가도 쉽게 이해 가능
 
-# Remove environment and its dependencies
-conda env remove -n sklearn-env
+Cons:
 
-# List all the conda environment available
-conda env list
-```
+- 다른 회귀, 분류 모델에 비해 예측 성능이 일반적으로 떨어짐
+- 하지만 이는 많은 수의 결정 트리의 결과를 종합하는 Ensemble 학습(e.g., Bagging,
+  Boosting)으로 보완 가능함
 
-# Setup Jupyter Notebook In Conda Environment And Install Kernel
+## Linear Discriminant Analysis
 
-Let's say we created a conda environment `ml`.
+# Ensemble Learning
 
-```sh
-$ conda activate ml
-# ipykernel: IPython kernel for Jupyter
-(ml) $ conda install ipykernel
-# install the kernel to use a jupyter notebook
-(ml) $ ipython kernel install --user --name=<any_name_for_kernel>
+<image width='500' src='bagging.png'>
 
-# uninstall a kernel
-jupyter kernelspec uninstall play_environment
+<image width='500' src='boosting.png'>
 
-# kernels list
-jupyter kernelspec list
-```
+여러 개의 모델을 학습시켜, 다양한 예측 결과들을 이용하는 방법론
+
+## Bagging
+
+### Bootstrap
+
+### Out-of-Bag Error Estimation
+
+### Random Forests
+
+Bagged tree 사이의 상관관계를 없애 성능을 향상시킨 알고리즘
+
+## Boosting
+
+배깅과 마찬가지로, 다양한 알고리즘과 회귀와 분류 문제에 모두 적용 가능
+
+결정 트리를 사용한 부스팅 알고리즘
+
+1. AdaBoost
+2. Gradient Boosting(GBM)
+3. XGBoost
+4. Light GBM
+
+# Dimension Reduction
+
+## PCA
+
+## SVD
+
+## LDA
+
+## t-SNE
+
+## UMAP
